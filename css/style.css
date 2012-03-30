@@ -1,0 +1,42 @@
+body {display: block;}
+body { font-family: "Lucida Grande", Verdana, Arial, sans-serif; background-color: #256896; color: black; }
+.clear {clear:both;}
+
+*{margin: 0px auto; padding: 0px auto;}
+.container {background: transparent none; margin: auto; width: 100%;}
+.page {background: transparent none;  margin-top: 3em; width: 720px; }
+.login .container {background: none;}
+.content {background: #fff; padding: 12px;  }
+
+.footer {font-size: 12px; color: #3399cc; margin-top: 20px; text-align: center;}
+.footer .logout {margin-bottom: 10px;}
+.footer .logout a { font-style: normal; font-weight: normal; text-decoration: none; border-color: #660000; border-width: 1px; border-style: solid; padding: 3px; background-color: #cc3333; color: white;}
+
+.menu li {padding: 3px; margin-right: 5px; border-style: solid; border-color: #000099; border-width: 1px; background-color: #3333ff; color: white; list-style: none; float: left; }
+.menu li.welcome {border-style: none; border-color: none; border-width: none; background-color: transparent;}
+.menu li.admin {border-color: black; background-color: #669900;}
+.menu li.log-out { border-color: #660000; background-color: #cc3333;}
+.menu li a {text-decoration: none; color: white;}
+.menu ul {margin-bottom: 10px; float: left;}
+.sub-menu{margin-top: 10px;}
+.sub-menu li {font-size: 11px; padding: 3px; margin-right: 5px; border-style: solid; border-color: #993333; border-width: 1px; background-color: #cc3333; color: white; list-style: none; float: left; }
+.sub-menu li a {text-decoration: none; color: white;}
+ul.body_menu {padding-top: 20px;}
+
+/*** LOGIN BOX CSS ***/
+#login-box { margin: auto; width:333px; height: 352px; padding: 58px 76px 0 76px; color: #ebebeb; font: 12px Arial, Helvetica, sans-serif; background: url('../images/login-box-backg.png') no-repeat left top; }
+#login-box img { border:none; }
+#login-box h2 { padding:0; margin:0; color: #ebebeb; font: bold 44px "Calibri", Arial; }
+#login-box-name { float: left; display:inline; width:80px; text-align: right; padding: 14px 10px 0 0; margin:0 0 7px 0; }
+#login-box-field { float: left; display:inline; width:230px; margin:0; margin:0 0 7px 0; }
+input#login-box-submit { border-color: #0f203e; border-width: 1px; border-style: solid; font-weight: bold; font-size: 40px; background: #1e3f73; color: white;}
+.form-login { width: 205px; padding: 10px 4px 6px 3px; border: 1px solid #0d2c52; background-color:#1e4f8a; font-size: 16px; color: #ebebeb; }
+.login-box-options { clear:both; padding-left:87px; font-size: 11px; }
+.login-box-options a { color: #ebebeb; font-size: 11px; }
+.footer a { font-style: italic; text-decoration: underline; color: #6699cc; }
+
+
+.key_input_fields .notes textarea {width: 90%; height: 200px;}
+.key_input_fields .id input {width: 90px;}
+.key_input_fields .program input {width: 50%;}
+.key_input_fields .key input {width: 50%;}
