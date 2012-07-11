@@ -1,32 +1,37 @@
 <?php
-// DO NOT CHANGE THIS LINE!
+//////////////////START////////////////////
+//DO NOT MIDIFY ANYTHING BELOW THIS POINT//
+/////////////////START////////////////////
 @include ('includes/config.php');
 
-
+$database = mysql_connect($dbhost, $dbuser, $dbpass) or trigger_error(mysql_error(),E_USER_ERROR); 
+/////////////////END///////////////////////
+//////IT IS OK TO START EDITING AGAIN /////
+////////////////END///////////////////////
 
 ////////////////////////////////////
 ///////////Start Header////////////
 ////////////////////////////////////
-$header = "
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns='http://www.w3.org/1999/xhtml'>
-<head>
-<meta content='index,follow' name='robots' />
-<meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-<link href='css/style.css' rel='stylesheet' media='screen' type='text/css' />
-<title>$sitetitle</title>
-<!-- START TinyMCE Header Setup START -->
-<!-- Applies to all text areas -->
-<script type='text/javascript' src='jscripts/tiny_mce/tiny_mce.js'></script>
-<script type='text/javascript'>
-tinyMCE.init({ mode : 'textareas', cleanup : 'true',});
-</script>
-<!-- END TinyMCE Header Setup END -->
-<!-- START Google jQuery START -->
-<script type='text/javascript' src='/js/jQuery.min.js'></script>
-<!-- END Google jQuery END -->
-</head>
-<body>";
+$header = "";
+$header .= "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n";
+$header .= "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n";
+$header .= "<head>\n";
+$header .= "<meta content=\"index,follow\" name=\"robots\" />\n";
+$header .= "<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />\n";
+$header .= "<link href=\"css/style.css\" rel=\"stylesheet\" media=\"screen\" type=\"text/css\" />\n";
+$header .= "<title>$sitetitle</title>\n";
+// START TINYMCE HEADER SETUP 
+// Applies to all text areas
+$header .= "<script type=\"text/javascript\" src=\"jscripts/tiny_mce/tiny_mce.js\"></script>\n";
+$header .= "<script type=\"text/javascript\">\n";
+$header .= "tinyMCE.init({\n";
+$header .= "	mode : \"textareas\",\n";
+$header .= "cleanup : \"true\",\n";
+$header .= "});\n";
+$header .= "</script>\n";
+// END OF TINMCE HEADER SETUP
+$header .= "</head>\n";
+$header .= "<body>\n";
 
 
 ////////////////////////////////////
@@ -39,26 +44,31 @@ $htmlheader = "";
 ////////////////////////////////////
 ////////Start Search Form///////////
 ////////////////////////////////////
-$searchform = "
-<h3>$searchformtitle</h3>
-<p>$searchformtext</p>
-<form name='form' action='?pg=keys&view=search' method='post'>
-<input type='text' name='q' />
-<input type='submit' name='Submit' value='Search' />
-</form>";
+$searchform = "";
+$searchform .= "<h3>$searchformtitle</h3>\n";
+$searchform .= "<p>$searchformtext</p>\n";
+$searchform .= "<form name=\"form\" action=\"?pg=keys&view=search\" method=\"post\">\n";
+$searchform .= "<input type=\"text\" name=\"q\" />\n";
+$searchform .= "<input type=\"submit\" name=\"Submit\" value=\"Search\" />\n";
+$searchform .= "</form>\n";
 
 
 ////////////////////////////////////
 //////////Start footer/////////////
 ////////////////////////////////////
-$footer = "
-</div>
-<div class='footer'>
-<div class='logout'><a href='logout.php'>LOGOUT!</a></div>
-<div class='powered-by'><a href='$poweredbylink'>$poweredby</a> <div> 
-<div class='version'>Verson: Beta</div>
-
-</div>\n</div>\n</div>\n<br><Br></body>\n</html>";
+$footer = "";
+// Closing tag for content
+$footer .= "</div>\n";
+// Open footer div
+$footer .= "<div class=\"footer\">\n";
+// Include logout link that goes to logout.php to logout
+$footer .= "<div class=\"logout\"><a href=\"logout.php\">LOGOUT!</a></div>\n";
+// Powerd by link that variables can be found in config.php
+$footer .= "<div class=\"powered-by\"><a href=\"$poweredbylink\">$poweredby</a> <div> \n";
+// version variable can be found in config.php
+$footer .= "<div class=\"version\">Verson: Beta</div>\n";
+// Close all HTML tags
+$footer .= "</div>\n</div>\n</div>\n<br><Br></body>\n</html>";
 
 
 ////////////////////////////////////
@@ -109,24 +119,32 @@ if (!$_SESSION['loggedIn']) {
 
 
 // Start output for login box
-$loginbox = $header;
-$loginbox .= "
-<div id='login-box'>
-<H2>Login</H2>
-$pleaselogin 
-<br />
-<br />
-<form method='post'>
-<div id='login-box-name'>UserName:</div><div id='login-box-field'><input name='username'  class='form-login' title='username' value='' size='30' maxlength='2048' type='text' /></div>
-<div id='login-box-name'>Password:</div><div id='login-box-field'><input name='password' type='password' class='form-login' title='Password' value='' size='30' maxlength='2048' /></div>
-<input name='login-form' type='hidden'  title='login-form' value='1'  />
-<br />
-<span class='login-box-options'> <a href='#' style='margin-left:30px;'>Forgot password?</a></span>
-<br />
-<br />
-<input id='login-box-submit' type='submit' value='LOGIN'>
-</div>
-</form>";
+$loginbox = "";
+// Add header to login box
+$loginbox .= $header;
+// Stat div box for login
+$loginbox .= "<div id=\"login-box\">\n";
+// Login box header
+$loginbox .= "<H2>Login</H2>";
+// Login box text found in config.php
+$loginbox .= "$pleaselogin\n"; 
+$loginbox .= "<br />";
+$loginbox .= "<br />";
+// HTML form for login
+$loginbox .= "<form method=\"post\">\n";
+// Field for login
+$loginbox .= "<div id=\"login-box-name\">UserName:</div><div id=\"login-box-field\"><input name=\"username\"  class=\"form-login\" title=\"username\" value=\"\" size=\"30\" maxlength=\"2048\" type=\"text\" /></div>\n";
+$loginbox .= "<div id=\"login-box-name\">Password:</div><div id=\"login-box-field\"><input name=\"password\" type=\"password\" class=\"form-login\" title=\"Password\" value=\"\" size=\"30\" maxlength=\"2048\" /></div>\n";
+$loginbox .= "<input name=\"login-form\" type=\"hidden\"  title=\"login-form\" value=\"1\"  />\n";
+$loginbox .= "<br />";
+// Forgot password link, not used yet
+$loginbox .= "<span class=\"login-box-options\"> <a href=\"#\" style=\"margin-left:30px;\">Forgot password?</a></span>\n";
+$loginbox .= "<br />";
+$loginbox .= "<br />";
+// Submit button for login form
+$loginbox .= "<input id=\"login-box-submit\" type=\"submit\" value=\"LOGIN\">\n";
+$loginbox .= "</div>\n";
+$loginbox .= "</form>\n";
 // Output $loginbox variable
 echo $loginbox;
 // Exit PHP
@@ -142,22 +160,22 @@ $username = $_SESSION['username'];
 ////////////////////////////////////
 ///////////Start Menu///////////////
 ////////////////////////////////////
-$menu = "
-<div class=\"menu\">
-<ul>
-<li><a href=\"index.php\">Home</a></li>
-<li><a href=\"?pg=keys\">View All Keys</a></li>
-<li><a href=\"?pg=keys&view=search\">Search Keys</a></li>
-<li><a href=\"?pg=keys&view=add\">Add Key</a></li>\n";
+$menu = "";
+$menu .= "<div class=\"menu\">\n";
+$menu .= "<ul>\n";
+$menu .= "<li><a href=\"index.php\">Home</a></li>\n";
+$menu .= "<li><a href=\"?pg=keys\">View All Keys</a></li>\n";
+$menu .= "<li><a href=\"?pg=keys&view=search\">Search Keys</a></li>\n";
+$menu .= "<li><a href=\"?pg=keys&view=add\">Add Key</a></li>\n";
 // add admin link if loged in as admin
 if (preg_match("/Admin/i", "$usergroup")){
 $menu .= "<li class=\"admin\"><a href=\"?pg=admin\">Admin</a></li>\n";
 }
-$menu .= "<li class=\"log-out\"><a href=\"logout.php\">LogOut</a></li>
-<li class=\"welcome\">Hello $username</li>
-</ul>
-</div>
-<div class=\"clear\"></div>";
+$menu .= "<li class=\"log-out\"><a href=\"logout.php\">LogOut</a></li>\n";
+$menu .= "<li class=\"welcome\">Hello $username</li>\n";
+$menu .= "</ul>\n";
+$menu .= "</div>\n";
+$menu .= "<div class=\"clear\"></div>";
 
 
 ////////////////////////////////////
