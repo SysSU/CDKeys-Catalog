@@ -47,6 +47,7 @@ $viewalluserstitleadmin = "User List";
 $viewalluserstextadmin = "This is a list of all the users. To edit a user click on the username.";
 
 
-
+// DO NOT EDIT BEYOND HERE!
+$database = mysql_connect($dbhost, $dbuser, $dbpass) or trigger_error(mysql_error(),E_USER_ERROR); 
 
 ?>
