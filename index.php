@@ -4,7 +4,7 @@
 /////////////////START////////////////////
 @include ('includes/config.php');
 
-
+$database = mysql_connect($dbhost, $dbuser, $dbpass) or trigger_error(mysql_error(),E_USER_ERROR); 
 /////////////////END///////////////////////
 //////IT IS OK TO START EDITING AGAIN /////
 ////////////////END///////////////////////
@@ -12,26 +12,26 @@
 ////////////////////////////////////
 ///////////Start Header////////////
 ////////////////////////////////////
-$header = "
-<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">
-<html xmlns=\"http://www.w3.org/1999/xhtml\">
-<head>
-<meta content=\"index,follow\" name=\"robots\" />
-<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />
-<link href=\"css/style.css\" rel=\"stylesheet\" media=\"screen\" type=\"text/css\" />
-<title>$sitetitle</title>
+$header = "";
+$header .= "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n";
+$header .= "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n";
+$header .= "<head>\n";
+$header .= "<meta content=\"index,follow\" name=\"robots\" />\n";
+$header .= "<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />\n";
+$header .= "<link href=\"css/style.css\" rel=\"stylesheet\" media=\"screen\" type=\"text/css\" />\n";
+$header .= "<title>$sitetitle</title>\n";
 // START TINYMCE HEADER SETUP 
 // Applies to all text areas
-<script type=\"text/javascript\" src=\"jscripts/tiny_mce/tiny_mce.js\"></script>
-<script type=\"text/javascript\">
-tinyMCE.init({\
-mode : \"textareas\",
-cleanup : \"true\",
-});
-</script>
+$header .= "<script type=\"text/javascript\" src=\"jscripts/tiny_mce/tiny_mce.js\"></script>\n";
+$header .= "<script type=\"text/javascript\">\n";
+$header .= "tinyMCE.init({\n";
+$header .= "	mode : \"textareas\",\n";
+$header .= "cleanup : \"true\",\n";
+$header .= "});\n";
+$header .= "</script>\n";
 // END OF TINMCE HEADER SETUP
-</head>
-<body>\n";
+$header .= "</head>\n";
+$header .= "<body>\n";
 
 
 ////////////////////////////////////
