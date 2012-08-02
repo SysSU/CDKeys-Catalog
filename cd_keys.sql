@@ -27,8 +27,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `cd_keys` (
   `id` mediumint(10) NOT NULL auto_increment,
-  `program` varchar(75) default NULL,
-  `program_key` varchar(75) default NULL,
+  `program` varchar(255) default NULL,
+  `program_key` varchar(255) default NULL,
   `program_notes` text NOT NULL,
   `category` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
